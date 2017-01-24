@@ -1,5 +1,7 @@
 package com.zjye.consumer.controller;
 
+import com.zjye.consumer.model.Person;
+import com.zjye.consumer.model.Response;
 import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
@@ -37,37 +39,3 @@ class BeerController {
 
 }
 
-class Response {
-    public ResponseStatus status;
-}
-
-enum ResponseStatus {
-    OK, NOT_OK
-}
-
-class Person {
-    private String name;
-    private int age;
-
-    public Person(){}
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-}
