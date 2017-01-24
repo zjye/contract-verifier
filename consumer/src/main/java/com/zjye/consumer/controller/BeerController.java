@@ -15,12 +15,13 @@ import java.net.URI;
 @RestController
 class BeerController {
 
+    private RestTemplate restTemplate;
+
     @RequestMapping(value = "/beer",
             method = RequestMethod.POST,
     consumes = MediaType.APPLICATION_JSON_VALUE)
     public String giveBeer(@RequestBody Person person) {
-        RestTemplate restTemplate = new RestTemplate();
-
+        this.restTemplate = new RestTemplate();
         ResponseEntity<Response> response = restTemplate.exchange(RequestEntity
                 .post(URI.create("http://localhost:8090/check"))
                 .contentType(MediaType.APPLICATION_JSON)

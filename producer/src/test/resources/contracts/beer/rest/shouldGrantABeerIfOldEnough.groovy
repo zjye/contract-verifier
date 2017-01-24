@@ -16,8 +16,8 @@ then:
         url '/check'
         body(
                 [
-                        name: "marcin",
-                        age: "22"
+                        name: "foo",
+                        age: 22
                 ]
         )
         headers {
