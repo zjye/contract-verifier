@@ -62,6 +62,9 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-contract-maven-plugin</artifactId>
                 <extensions>true</extensions>
+                <configuration>
+                    <packageWithBaseClasses>com.zjye</packageWithBaseClasses>
+                </configuration>
             </plugin>
         </plugins>
     </build>
