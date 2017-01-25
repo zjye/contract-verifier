@@ -3,6 +3,7 @@ package com.zjye.consumer.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zjye.consumer.model.Person;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,7 @@ public class BeerControllerTest {
     @Autowired
     protected MockMvc mockMvc;
 
+    @Ignore
     @Test
     public void should_give_me_beer() throws Exception {
         mockMvc.perform(post("/beer")
@@ -41,6 +43,7 @@ public class BeerControllerTest {
                 .andExpect(content().string("NAH"));
     }
 
+    @Ignore
     @Test
     public void should_reject_beer() throws Exception {
         mockMvc.perform(post("/beer")
