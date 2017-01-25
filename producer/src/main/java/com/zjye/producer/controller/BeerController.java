@@ -9,55 +9,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class BeerController {
 
+    private final PersonCheckingService personCheckingService;
+
+    public BeerController(PersonCheckingService personCheckingService) {
+        this.personCheckingService = personCheckingService;
+    }
     @RequestMapping(value = "check",
             method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public Response check(@RequestBody PersonToCheck personToCheck) {
-        return null;
+        if( personCheckingService.shouldGetBeer(personToCheck))
+            return new Response(BeerCheckStatus.OK);
+
+        return new Response(BeerCheckStatus.NO_WAY);
     }
 
-}
-
-interface PersonCheckingService {
-    boolean shouldGetBeer(PersonToCheck personToCheck);
-}
-
-class Response {
-    public BeerCheckStatus status;
-
-    Response(BeerCheckStatus status) { this.status = status; }
-}
-
-enum BeerCheckStatus {
-    OK,
-    NO_WAY
-}
-
-class PersonToCheck {
-    String name;
-    String age;
-
-    public PersonToCheck(String name, String age) {
-        this.name = name;
-        this.age = age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
-    }
 }
 
 

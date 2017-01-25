@@ -27,7 +27,7 @@ then:
     response {
         status 200
         body("""
-            { "status" : "NOT_OK" }
+            { "status" : "NO_WAY" }
         """)
         headers {
             header(
