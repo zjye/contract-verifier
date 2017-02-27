@@ -22,7 +22,7 @@ public class BeerController {
         if( personCheckingService.shouldGetBeer(personToCheck))
             return new Response(BeerCheckStatus.OK);
 
-        return new Response(BeerCheckStatus.NO_WAY);
+        return new Response(BeerCheckStatus.NOT_OK);
     }
 
 }

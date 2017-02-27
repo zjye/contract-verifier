@@ -14,6 +14,9 @@ then:
 """)
     // label which output message will be triggered
     label 'accepted_verification'
+    input {
+        triggeredBy("clientIsOldEnough()")
+    }
     outputMessage {
         // destination to which the output message will be sent
         sentTo 'verifications'

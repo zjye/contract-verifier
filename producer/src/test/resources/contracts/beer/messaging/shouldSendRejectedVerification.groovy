@@ -14,6 +14,9 @@ then:
 """)
     // label which output message will be triggered
     label 'rejected_verification'
+    input {
+        triggeredBy("clientIsTooYoung()")
+    }
     outputMessage {
         // destination to which the output message will be sent
         sentTo 'verifications'
